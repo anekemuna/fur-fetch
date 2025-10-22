@@ -14,7 +14,6 @@ function App() {
 
   // Function to fetch a random dog
   const fetchRandomDog = async () => {
-    setLoading(true);
     try {
       const response = await fetch(
         "https://api.thedogapi.com/v1/images/search?limit=1&has_breeds=1",
@@ -25,14 +24,10 @@ function App() {
         }
       );
       const data = await response.json();
-      if (data && data[0]) {
-        setCurrentDog(data[0]);
-        //addToHistory(data[0]);
-      }
+      return data && data[0] ? data[0] : null;
     } catch (error) {
       console.error("Error fetching dog:", error);
-    } finally {
-      setLoading(false);
+      return null;
     }
   };
 
@@ -70,23 +65,39 @@ function App() {
 
   // discover new dog based on ban list
   const discoverNewDog = async () => {
+    setLoading(true);
     let attempts = 0;
     const maxAttempts = 10;
+    let foundDog = null;
 
-    // pick a dog, after 10 attempts to pick an unbanned dog
-    while (attempts < maxAttempts) { // i had to do this to avoid long wait
-      await fetchRandomDog();
+    try {
+      // pick a dog, after 10 attempts to pick an unbanned dog
+      while (attempts < maxAttempts) { // i had to do this to avoid long wait
+        const dog = await fetchRandomDog();
 
-      // Check if the fetched dog should be skipped based on ban list
-      if (currentDog && shouldSkipDog(currentDog)) {
-        attempts++;
-        continue; // try again
+        if (!dog) {
+          attempts++;
+          continue;
+        }
+
+        // Check if the fetched dog should be skipped based on ban list
+        if (shouldSkipDog(dog)) {
+          attempts++;
+          continue; // try again
+        }
+
+        foundDog = dog;
+        break;
       }
 
-      break;
+      // fixes issue, only adding dog if found
+      if (foundDog) {
+        setCurrentDog(foundDog);
+        addToHistory(foundDog);
+      }
+    } finally {
+      setLoading(false);
     }
-
-    addToHistory(currentDog);
   };
 
   // Fetch initial dog on component mount
