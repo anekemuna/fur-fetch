@@ -4,7 +4,7 @@ Submitted by: **Munachimso Aneke**
 
 This web app: **Inspired by the now-defunct website StumbleUpon, Fur Fetch is a web app that allows users discover breeds of dogs using the [TheDogAPI](https://thedogapi.com/)**
 
-Time spent: **9** hours spent in total
+Time spent: **10** hours spent in total
 
 ## Required Features
 
@@ -38,13 +38,14 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-* [x] If user clicks an item in history, it's display would be shown on the main page.
+* [x] If user clicks on a dog in the history list, the dog's details is shown in the the main display screen section.
+* [x] Added a clear button to make it easier to clear entire ban list.
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://imgur.com/a/furfetch-MrR9dHr' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with ...  

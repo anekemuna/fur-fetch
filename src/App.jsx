@@ -67,11 +67,11 @@ function App() {
   const discoverNewDog = async () => {
     setLoading(true);
     let attempts = 0;
-    const maxAttempts = 10;
+    const maxAttempts = 30;
     let foundDog = null;
 
     try {
-      // pick a dog, after 10 attempts to pick an unbanned dog
+      // pick a dog, after 30 attempts to pick an unbanned dog
       while (attempts < maxAttempts) { // i had to do this to avoid long wait
         const dog = await fetchRandomDog();
 
