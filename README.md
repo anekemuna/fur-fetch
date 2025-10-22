@@ -45,7 +45,15 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://imgur.com/a/furfetch-MrR9dHr' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+Here's a walkthrough of implemented user stories:
+
+[![Walkthrough](https://img.youtube.com/vi/BqkD5Uq_ZNc/0.jpg)](https://www.youtube.com/watch?v=BqkD5Uq_ZNc)
+
+
+Walkthrough Link: [https://youtube.com/shorts/BqkD5Uq_ZNc?feature=share]
+
+Walkthrough created with:
+[Youtube](https://www.youtube.com/)
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with ...  
